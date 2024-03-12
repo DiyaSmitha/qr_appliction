@@ -23,6 +23,7 @@ class _indexState extends State<index> {
             ),
             Text(
               'LOGIN',
+
               style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
             ),
             SizedBox(
