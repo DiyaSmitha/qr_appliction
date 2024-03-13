@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qrappliction/login.dart';
+import 'package:qrappliction/qr.dart';
 
 class registor extends StatefulWidget {
   const registor({Key? key}) : super(key: key);
@@ -28,90 +30,68 @@ class _registorState extends State<registor> {
           ),
           TextField(
             decoration: InputDecoration(
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(40),),
-              enabledBorder:OutlineInputBorder(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(40),),
+                  borderRadius: BorderRadius.circular(40),
+                ),
                 hintText: 'Enter the text'),
           ),
-        SizedBox(
-            height: 20),
-
-
+          SizedBox(height: 20),
           TextField(
             decoration: InputDecoration(
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(40),),
-                enabledBorder:OutlineInputBorder(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(40),),
+                  borderRadius: BorderRadius.circular(40),
+                ),
                 hintText: 'Enter the text'),
           ),
-        SizedBox(
-            height: 20),
+          SizedBox(height: 20),
           TextField(
             decoration: InputDecoration(
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(40),),
-                enabledBorder:OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white
-                  ),
-                  borderRadius: BorderRadius.circular(40),) ,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(40),
+                ),
                 hintText: 'Enter the text'),
           ),
-          SizedBox(
-            height: 20
-          ),
+          SizedBox(height: 20),
           TextField(
             decoration: InputDecoration(
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(40),),
-                enabledBorder:OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white
-                  ),
-                  borderRadius: BorderRadius.circular(40),) ,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(40),
+                ),
                 hintText: 'Enter the text'),
           ),
-
-
-
-
-
-
-          SizedBox(
-              height: 20),
-
+          SizedBox(height: 20),
           ElevatedButton(
             style: TextButton.styleFrom(
               primary: Colors.white,
               backgroundColor: Colors.teal,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => index(),
+                  ));
+            },
             child: Text(
               '       REGISTOR        ',
             ),
           ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ]),
       ),
     );

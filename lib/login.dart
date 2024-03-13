@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qrappliction/qr.dart';
 import 'package:qrappliction/registor.dart';
 
 class index extends StatefulWidget {
@@ -38,13 +39,6 @@ class _indexState extends State<index> {
                     ),
                     borderRadius: BorderRadius.circular(40),) ,
 
-
-
-
-
-
-
-
                   hintText: 'Enter the text'),
             ),
             SizedBox(
@@ -59,11 +53,6 @@ class _indexState extends State<index> {
                     borderSide: BorderSide(color: Colors.white
                     ),
                     borderRadius: BorderRadius.circular(40),) ,
-
-
-
-
-
                   hintText: 'Enter the text'),
             ),
             SizedBox(
@@ -74,7 +63,12 @@ class _indexState extends State<index> {
                 primary: Colors.white,
                 backgroundColor: Colors.teal,
               ),
-              onPressed: () {},
+              onPressed: () {
+
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => qrpage() ,));
+
+              },
               child: Text(
                 '       Log In        ',
               ),
