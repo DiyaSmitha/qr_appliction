@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qrappliction/login.dart';
+import 'package:qrappliction/pro.dart';
 import 'package:qrappliction/qr.dart';
 
 class registor extends StatefulWidget {
@@ -85,7 +86,7 @@ class _registorState extends State<registor> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => index(),
+                    builder: (context) => profilepage(),
                   ));
             },
             child: Text(

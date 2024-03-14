@@ -1,5 +1,9 @@
+import 'dart:ui';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qrappliction/img.dart';
 
 class qrpage extends StatefulWidget {
   const qrpage({Key? key}) : super(key: key);
@@ -30,9 +34,14 @@ class _qrpageState extends State<qrpage> {
                 size: 200.0,
               ),
               SizedBox(height: 24),
-              ElevatedButton(onPressed: () {}, child: Text('Scan Me'))
+              ElevatedButton(onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Impage(),));
+              }, child: Text('Scan Me'))
             ],
           )),
     );
   }
+
+
 }
