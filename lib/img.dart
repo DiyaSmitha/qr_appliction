@@ -30,6 +30,11 @@ class _ImpageState extends State<Impage> {
               }
             },
           ),
+          SizedBox(height: 24,),
+          TextField(decoration: InputDecoration(border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(36)
+          ))),
+          SizedBox(height: 24),
           ElevatedButton(
             onPressed: () {
               Navigator.push(

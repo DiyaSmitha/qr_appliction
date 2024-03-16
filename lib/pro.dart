@@ -27,7 +27,7 @@ class _profilepageState extends State<profilepage> {
           SizedBox(
             height: 24,
           ),
-          Text('SAM LIVION',style: TextStyle(fontSize:45,color: Colors.white)),
+          Text('Sturo Gojo',style: TextStyle(fontSize:45,color: Colors.white)),
           SizedBox(
             height: 24,
           ),
