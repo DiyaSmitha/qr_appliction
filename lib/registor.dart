@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:qrappliction/login.dart';
 import 'package:qrappliction/pro.dart';
 import 'package:qrappliction/qr.dart';
-
+import 'package:http/http.dart' as http;
 class registor extends StatefulWidget {
   const registor({Key? key}) : super(key: key);
 
@@ -11,6 +13,37 @@ class registor extends StatefulWidget {
 }
 
 class _registorState extends State<registor> {
+  TextEditingController rollno = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  void regi()async{
+    print(rollno.text);
+    print(name.text);
+    print(email.text);
+    print(password.text);
+    Uri uri=Uri.parse('https://scnner-web.onrender.com/api/register');
+    var response = await http.post(uri,
+    headers:<String,String>{
+      'Content-Type':'application/json; charset=UTF-8',
+    },
+    body: jsonEncode({
+      'rollno':rollno.text,
+      'name':name.text,
+      'email':email.text,
+       'password':password.text
+    }));
+    print(response.statusCode);
+    print(response.body);
+    var data =jsonDecode(response.body);
+    print(data["message"]);
+    if(response.statusCode==200){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => index() ,));
+    }
+    else{ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: data["message"]));}
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +63,7 @@ class _registorState extends State<registor> {
             height: 10,
           ),
           TextField(
+            controller: rollno,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
@@ -42,6 +76,7 @@ class _registorState extends State<registor> {
           ),
           SizedBox(height: 20),
           TextField(
+            controller: name,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
@@ -54,6 +89,7 @@ class _registorState extends State<registor> {
           ),
           SizedBox(height: 20),
           TextField(
+            controller: email,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
@@ -66,6 +102,7 @@ class _registorState extends State<registor> {
           ),
           SizedBox(height: 20),
           TextField(
+            controller: password,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
@@ -83,12 +120,8 @@ class _registorState extends State<registor> {
               backgroundColor: Colors.teal,
             ),
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => profilepage(),
-                  ));
-            },
+              regi();
+               },
             child: Text(
               '       REGISTOR        ',
             ),
