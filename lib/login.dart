@@ -31,7 +31,7 @@ class _indexState extends State<index> {
     var data =jsonDecode(response.body);
     print(data["message"]);
     if(response.statusCode==200){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => index() ,));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => qrpage() ,));
     }
     else{ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: data["message"]));}
 
