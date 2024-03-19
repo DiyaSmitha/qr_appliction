@@ -36,18 +36,6 @@ class _indexState extends State<index> {
     else{ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: data["message"]));}
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

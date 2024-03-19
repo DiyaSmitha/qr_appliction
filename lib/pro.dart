@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class profilepage extends StatefulWidget {
   const profilepage({Key? key}) : super(key: key);
@@ -8,6 +9,17 @@ class profilepage extends StatefulWidget {
 }
 
 class _profilepageState extends State<profilepage> {
+  TextEditingController rollno = TextEditingController();
+
+  void getuser() async {
+    Uri uri = Uri.parse('https://scnner-web.onrender.com/api/profile/${rollno
+        .text}');
+    var response = await http.post(uri,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',});
+    print(response.body);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +33,14 @@ class _profilepageState extends State<profilepage> {
             alignment: Alignment.center,
           ),
           CircleAvatar(radius: 85,
-            backgroundImage:AssetImage('images/Capture.PNG',),
+            backgroundImage: AssetImage('images/Capture.PNG',),
 
           ),
           SizedBox(
             height: 24,
           ),
-          Text('Sturo Gojo',style: TextStyle(fontSize:45,color: Colors.white)),
+          Text('Sturo Gojo',
+              style: TextStyle(fontSize: 45, color: Colors.white)),
           SizedBox(
             height: 24,
           ),
@@ -36,6 +49,7 @@ class _profilepageState extends State<profilepage> {
             height: 24,
           ),
           TextField(
+            controller: rollno,
             style: TextStyle(
               color: Colors.white,
             ),
