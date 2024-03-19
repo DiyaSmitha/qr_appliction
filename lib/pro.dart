@@ -9,16 +9,7 @@ class profilepage extends StatefulWidget {
 }
 
 class _profilepageState extends State<profilepage> {
-  TextEditingController rollno = TextEditingController();
 
-  void getuser() async {
-    Uri uri = Uri.parse('https://scnner-web.onrender.com/api/profile/${rollno
-        .text}');
-    var response = await http.post(uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',});
-    print(response.body);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +40,7 @@ class _profilepageState extends State<profilepage> {
             height: 24,
           ),
           TextField(
-            controller: rollno,
+
             style: TextStyle(
               color: Colors.white,
             ),
